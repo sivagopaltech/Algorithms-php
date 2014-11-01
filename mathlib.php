@@ -56,5 +56,28 @@ class mathlib()
     }
     return $fib_numbers;
   }
+  
+  /*return lcm of numbers 
+  @input array() $data */
+  function lcm($data)
+  {
+    $lcm = 1;
+    while(count($data)>0)
+    {
+    $min = min($data);
+    $lcm *= $min;
+    $tmp_data = array();
+    foreach($data as $val)
+    {
+       if($val != $min && $val%$min == 0)
+       $tmp_data[] = $val/$min;
+       else if($val != $min)
+       $tmp_data[] = $val;
+    }
+     $data = $tmp_data;
+    }
+       return $lcm;
+  }
+  
 
 }
