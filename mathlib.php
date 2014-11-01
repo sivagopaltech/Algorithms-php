@@ -21,7 +21,7 @@ class mathlib()
   }
   
   /* return prime numbers upto $n */
-  function getPrimes($n)
+  function primes($n)
   {
     $primes = array();
     for($i=2;$i<=$n;$i++)
@@ -43,7 +43,7 @@ class mathlib()
   }
   
   /* return Fibonacci Numbers upto $n */
-  function getFibonacciNumbers($n)
+  function fibonacciNumbers($n)
   {
     $fib_numbers = array();
     $a =0;
