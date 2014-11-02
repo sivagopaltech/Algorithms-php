@@ -27,10 +27,9 @@ class mathlib()
     for($i=2;$i<=$n;$i++)
     {
         $prime = true;
-        $limit = floor(sqrt($i));
-        for($j=2;$j<=$limit;$j++)
+        foreach($primes as $val)
         {
-            if($i%$j == 0)
+            if($i%$val == 0)
             {
              $prime = false;
              break;
@@ -38,6 +37,22 @@ class mathlib()
         }
         if($prime==true)
            $primes[] = $i;
+    }
+    return $primes;
+  }
+  
+   /*to determine whether given number is prime or not */
+  function isPrime($n)
+  {
+    $prime = true;
+    $limit = floor(sqrt($i));
+    for($j=2;$j<=$limit;$j++)
+    {
+        if($i%$j == 0)
+        {
+         $prime = false;
+         break;
+        }
     }
     return $primes;
   }
