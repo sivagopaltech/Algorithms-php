@@ -5,19 +5,19 @@ class mathlib()
   /*return sum of first n positive numbers */
   public function sum($n)
   {
-    return ($n*($n+1))/2;
+    return bcdiv(bcmul($n,bcadd($n,1)),2);
   }
   
   /*return sum of first n positive even numbers */
   public function sumEven($n)
   {
-    return $n*($n+1);
+    return bcmul($n,bcadd($n,1));
   }
   
   /*return sum of first n positive odd numbers */
   public function sumOdd($n)
   {
-    return $n*$n;
+    return bcmul($n,$n);
   }
   
   /* return prime numbers upto $n */
@@ -44,17 +44,27 @@ class mathlib()
    /*to determine whether given number is prime or not */
   function isPrime($n)
   {
+    if($n == 0 || $n == 1)
+    {
+      return false;
+    }
+    else if($n < 0)
+    {
+      return false;
+    }
+    else {
     $prime = true;
-    $limit = floor(sqrt($i));
+    $limit = floor(bcsqrt($n));
     for($j=2;$j<=$limit;$j++)
     {
-        if($i%$j == 0)
+        if(bcmod($n,$j) == 0)
         {
          $prime = false;
          break;
         }
     }
-    return $primes;
+    return $prime;
+    }
   }
   
   /* return Fibonacci Numbers upto $n */
@@ -65,7 +75,7 @@ class mathlib()
     $b=1;
     while($b<=$n)
     {
-        $fib_numbers[] = $c = $a+$b;
+        $fib_numbers[] = $c = bcadd($a,$b);
         $a = $b;
         $b = $c;
     }
