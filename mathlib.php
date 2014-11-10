@@ -80,7 +80,7 @@ class mathlib()
     }
     else {
     $res = 1;
-    for($j=2;$j<=$limit;$j++)
+    for($j=2;$j<=$n;$j++)
     {
         $res = bcmul($j,$res);
     }
