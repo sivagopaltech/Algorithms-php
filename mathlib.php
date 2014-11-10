@@ -103,8 +103,7 @@ class mathlib()
     return $fib_numbers;
   }
   
-  /*return lcm of numbers 
-  @input array() $data */
+  /*return lcm of numbers @input array() $data */
   function lcm($data)
   {
     $lcm = 1;
@@ -123,6 +122,13 @@ class mathlib()
      $data = $tmp_data;
     }
        return $lcm;
+  }
+  
+  /*return lcm of numbers @input array() $data */
+  function gcd($data)
+  {
+   $gcd = function ($a, $b) use (&$gcd) { return $b ? $gcd($b, $a % $b) : $a; };
+   return array_reduce($data,$gcd);
   }
   
   
