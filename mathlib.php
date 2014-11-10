@@ -67,6 +67,27 @@ class mathlib()
     }
   }
   
+  /*to determine the factorial */
+  function fact($n)
+  {
+    if($n == 0 || $n == 1)
+    {
+      return 1;
+    }
+    else if($n < 0)
+    {
+      return null;
+    }
+    else {
+    $res = 1;
+    for($j=2;$j<=$limit;$j++)
+    {
+        $res = bcmul($j,$res);
+    }
+    return $res;
+    }
+  }
+  
   /* return Fibonacci Numbers upto $n */
   function fibonacciNumbers($n)
   {
@@ -103,6 +124,8 @@ class mathlib()
     }
        return $lcm;
   }
+  
+  
   
 
 }
