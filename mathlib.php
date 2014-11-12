@@ -23,7 +23,7 @@ class mathlib()
   /* return prime numbers upto $n */
 function primes($n)
 {
-  $numbers = array_fill(2,$n,1);
+  $numbers = array_fill(2,$n-1,1);
   $primes = array();
   while(count($numbers) > 0)
   {
