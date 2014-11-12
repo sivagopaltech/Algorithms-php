@@ -21,25 +21,21 @@ class mathlib()
   }
   
   /* return prime numbers upto $n */
-  function primes($n)
+function primes($n)
+{
+  $numbers = array_fill(2,$n,1);
+  $primes = array();
+  while(count($numbers) > 0)
   {
-    $primes = array();
-    for($i=2;$i<=$n;$i++)
-    {
-        $prime = true;
-        foreach($primes as $val)
-        {
-            if($i%$val == 0)
-            {
-             $prime = false;
-             break;
-            }
-        }
-        if($prime==true)
-           $primes[] = $i;
-    }
-    return $primes;
+  $primes[] = $p = key($numbers);
+  unset($numbers[$p]);
+  for($i=2;$i*$p<=$n;$i++)
+  {
+     unset($numbers[$i*$p]);
   }
+  }
+  return $primes;
+}
   
    /*to determine whether given number is prime or not */
   function isPrime($n)
